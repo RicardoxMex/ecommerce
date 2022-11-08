@@ -15,9 +15,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::makeDirectory('products');
-
+        Storage::deleteDirectory('public'.DIRECTORY_SEPARATOR.'products');
+        Storage::deleteDirectory('public'.DIRECTORY_SEPARATOR.'categories');
+        Storage::deleteDirectory('public'.DIRECTORY_SEPARATOR.'subcategories');
+        Storage::makeDirectory('public'.DIRECTORY_SEPARATOR.'products');
+        Storage::makeDirectory('public'.DIRECTORY_SEPARATOR.'categories');
+        Storage::makeDirectory('public'.DIRECTORY_SEPARATOR.'subcategories');
+        // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(SubcategorySeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(ColorSeeder::class);
+        $this->call(ColorProductSeeder::class);
+        $this->call(SizeSeeder::class);
     }
 }

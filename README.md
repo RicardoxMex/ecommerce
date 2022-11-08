@@ -64,3 +64,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+configurar Faker
+
+vendor\fakerphp\faker\src\Faker\Provider\Image.php
+public const BASE_URL = 'https://placehold.jp';  // cambie la URL 
+Una vez abierto este archivo buscaremos en las lineas aprox 114 y agregaremos el siguiente codigo, tomemos como referencia el codigo existente 
+curl_setopt($ch, CURLOPT_FILE, $fp); //línea existente
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);//nueva línea
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//nueva línea
+$success = curl_exec($ch) && curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;//línea existente

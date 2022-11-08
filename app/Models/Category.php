@@ -24,7 +24,7 @@ class Category extends Model
     //relacion muchos a muchos
     public function brands()
     {
-        return $this->belongsToMany(Brands::class);
+        return $this->belongsToMany(Brand::class);
     }
 
     //relacion de uno a muchos atraves de una relacion

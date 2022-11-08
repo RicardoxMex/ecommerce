@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use App\Models\Category;
-use Database\Factories\CategoryFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -19,34 +18,38 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name'=>'Celulares y tablets',
-                'slug'=>Str::slug('Celulares y tablets'),
-                'icon'=>'<li class="fas fa-mobile-alt"></li>',
+                'name' => 'Celulares y tablets',
+                'slug' => Str::slug('celulares y tablets'),
+                'icon'=>'<i class="fas fa-mobile-alt"></i>'
             ],
             [
-                'name'=>'TV, audio, video',
-                'slug'=>Str::slug('TV, audio, video'),
-                'icon'=>'<li class="fas fa-tv"></li>',
+                'name' => 'Tv, Audio y Video',
+                'slug' => Str::slug('Tv, Audio y Video'),
+                'icon'=>'<i class="fas fa-tv"></i>'
             ],
             [
-                'name'=>'consola y video juegos',
-                'slug'=>Str::slug('Consola y video juegos'),
-                'icon'=>'<li class="fas fa-gamepad"></li>',
+                'name' => 'Consolas y Video Juegos',
+                'slug' => Str::slug('Consolas y Video Juegos'),
+                'icon'=>'<i class="fas fa-gamepad"></i>'
             ],
             [
-                'name'=>'Computacion',
-                'slug'=>Str::slug('Computacion'),
-                'icon'=>'<li class="fas fa-laptop"></li>',
+                'name' => 'Computacion',
+                'slug' => Str::slug('Computacions'),
+                'icon'=>'<i class="fas fa-laptop"></i>'
             ],
             [
-                'name'=>'Moda',
-                'slug'=>Str::slug('Moda'),
-                'icon'=>'<li class="fas fa-tshirt"></li>',
-            ],
+                'name' => 'Moda',
+                'slug' => Str::slug('Moda'),
+                'icon'=>'<i class="fas fa-tshirt"></i>'
+            ]
         ];
 
-        foreach ($categories as $category ) {
-            Category::factory()->create($category);
+        foreach ($categories as $category) {
+            $category = Category::factory(1)->create($category)->first();
+            $brands = Brand::factory(4)->create();
+            foreach ($brands as $brand ) {
+                $brand->categories()->attach($category->id);
+            }
         }
     }
 }

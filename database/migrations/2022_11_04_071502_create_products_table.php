@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->integer('quantity');
+            $table->enum('status', [Product::BORRADOR, PRODUCT::PUBLICADO])->default(Product::BORRADOR);
             $table->timestamps();
         });
     }
