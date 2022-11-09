@@ -12,8 +12,11 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.js" integrity="sha512-AZURF+lGBgrV0WM7dsCFwaQEltUV5964wxMv+TSzbb6G1/Poa9sFxaCed8l8CcFRTiP7FsCgCyOm/kf1LARyxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.css" integrity="sha512-YM6sLXVMZqkCspZoZeIPGXrhD9wxlxEF7MzniuvegURqrTGV2xTfqq1v9FJnczH+5OGFl5V78RgHZGaK34ylVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -33,5 +36,26 @@
         @stack('modals')
 
         @livewireScripts
+
+        <script>
+            function dropdown() {
+                return {
+                    open:false,
+                    show(){
+                        if (this.open) {
+                            this.open = false
+                            document.getElementsByTagName('html')[0].style.overflow = 'auto'
+                        }else{
+                            this.open = true
+                            document.getElementsByTagName('html')[0].style.overflow = 'hidden'
+                        }
+                    },
+                    close(){
+                        this.open = false
+                            document.getElementsByTagName('html')[0].style.overflow = 'auto'
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
