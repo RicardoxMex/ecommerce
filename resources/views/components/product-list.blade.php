@@ -22,9 +22,9 @@
                 </div>
             </div>
             <div class="mt-auto mb-6">
-                <x-jet-danger-button>
-                    Comprar
-                </x-jet-danger-button>
+                <x-danger-enlace url="{{route('products.show', $product)}}" >
+                    Mas informacion
+                </x-danger-enlace>
             </div>
         </div>
     </article>

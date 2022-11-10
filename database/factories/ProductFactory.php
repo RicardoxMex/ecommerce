@@ -34,7 +34,7 @@ class ProductFactory extends Factory
             'price' => $this->faker->randomElement([19.99, 49.99, 99.99]),
             'subcategory_id' => $subcategory,
             'brand_id' => $brand->id,
-            'quantity' => 1,
+            'quantity' => 20,
             'status' => 2,
         ];
     }
