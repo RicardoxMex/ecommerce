@@ -29,6 +29,12 @@ class Category extends Model
 
     //relacion de uno a muchos atraves de una relacion
     public function products(){
-        return $this->hasManyThrough(Products::class, Subcategory::class);
+        return $this->hasManyThrough(Product::class, Subcategory::class);
+    }
+
+    //url
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

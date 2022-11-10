@@ -1,4 +1,4 @@
-<header class="bg-trueGray-700 sticky top-0" x-data="dropdown()">
+<header class="bg-trueGray-700 sticky z-50 top-0" x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a :class="{ 'bg-opacity-100 text-orange-500': open }" x-on:click="show()"
             class="order-last md:order-first flex flex-col items-center justify-center px-6 md:px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full">
@@ -77,7 +77,7 @@
                 <ul class="bg-white">
                     @foreach ($categories as $category)
                         <li class="navigation-link text-trueGray-500 hover:bg-orange-500 hover:text-white">
-                            <a href="" class="py-2 px-4 text-sm flex items-center">
+                            <a href="{{route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center">
                                 <span class="flex justify-center w-9">{!! $category->icon !!}</span>
                                 {{ $category->name }}
                             </a>
