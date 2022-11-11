@@ -89,6 +89,7 @@ class SubcategorySeeder extends Seeder
                 'name'=>'Accesorios PC',
                 'slug'=>Str::slug('Accesorios PC'),
             ],
+            //moda
             [
                 'category_id' => 5,
                 'name'=>'Mujeres',
